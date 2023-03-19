@@ -37,11 +37,13 @@ jobs:
       #   creds: ${{ secrets.AZURE_CREDS }}
         
       - name: Checkout Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Deploy to Azure
-        uses: tibor19/static-website-deploy@v2
+        uses: bacongobbler/azure-blob-storage-upload@main
         with:
-          enabled-static-website: 'true'
-          folder: 'web'
-          connection-string: ${{ secrets.DEPLOY_SAS_STATIC }}
+          source_dir: 'web'
+          container_name: '$web'
+          account_name: ${{ secrets.AZ_STORAGE_ACCT }}
+          connection_string: ${{ secrets.DEPLOY_SAS_STATIC }}
+          sync: 'true'
