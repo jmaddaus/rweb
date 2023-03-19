@@ -44,6 +44,6 @@ jobs:
         with:
           source_dir: 'web'
           container_name: '$web'
-          account_name: ${{ secrets.AZ_STORAGE_ACCT }}
-          connection_string: ${{ secrets.DEPLOY_SAS_STATIC }}
+          #account_name: ${{ secrets.AZ_STORAGE_ACCT }}
+          connection_string: ${{ secrets.AZ_CONN_STR }}
           sync: 'true'
