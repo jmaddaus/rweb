@@ -37,10 +37,11 @@ jobs:
       #   creds: ${{ secrets.AZURE_CREDS }}
         
       - name: Checkout Source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Deploy to Azure
-        uses: TravisSpomer/deploy-to-azure-storage@v1.4.0
+        uses: tibor19/static-website-deploy@v2
         with:
-          source-path: web
-          sas-url: ${{ secrets.DEPLOY_SAS_STATIC }}
+          enabled-static-website: 'true'
+          folder: 'web'
+          connection-string: ${{ secrets.DEPLOY_SAS_STATIC }}
