@@ -42,5 +42,5 @@ jobs:
       - name: Deploy to Azure
         uses: TravisSpomer/deploy-to-azure-storage@v1.4.0
         with:
-          source-path: 
+          source-path: web
           sas-url: ${{ secrets.DEPLOY_SAS_STATIC }}
